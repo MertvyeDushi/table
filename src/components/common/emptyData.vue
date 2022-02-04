@@ -1,13 +1,9 @@
 <template>
-	<div></div>
+  <h1>No data</h1>
 </template>
 
 <script>
 export default {
-	name: 'emptyData',
+  name: 'EmptyData',
 }
 </script>
-
-<style>
-
-</style>

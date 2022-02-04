@@ -1,8 +1,8 @@
 import axios from 'axios'
 
 export const instance = axios.create({
-	baseURL: 'http://api.football-data.org/v2/',
-	headers: {
-		'X-Auth-Token': process.env.VUE_APP_API_TOKEN
-	},
+  baseURL: 'http://api.football-data.org/v2/',
+  headers: {
+    'X-Auth-Token': process.env.VUE_APP_API_TOKEN
+  },
 })

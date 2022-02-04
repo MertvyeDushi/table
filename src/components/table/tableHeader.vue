@@ -1,68 +1,68 @@
 <template>
-	<thead class="football-table-header" :class="headerClass">
-		<tr class="football-table-header__row">
-			<th
-				v-for="(item, index) in items"
-				:key="index"
-				class="football-table-header__item"
-			>
-				{{ item }}
-			</th>
-		</tr>
-	</thead>
+  <thead class="football-table-header" :class="headerClass">
+    <tr class="football-table-header__row">
+      <th
+        v-for="(item, index) in items"
+        :key="index"
+        class="football-table-header__item"
+      >
+        {{ item }}
+      </th>
+    </tr>
+  </thead>
 </template>
 
 <script>
 export default {
-	name: 'tableHeader',
+  name: 'TableHeader',
 
-	props: {
-		type: {
-			type: String,
-			default: 'leagues',
-		},
-		items: {
-			type: Array,
-			required: true,
-		},
-	},
+  props: {
+    type: {
+      type: String,
+      default: 'leagues',
+    },
+    items: {
+      type: Array,
+      required: true,
+    },
+  },
 
-	computed: {
-		headerClass () {
-			const { type } = this
+  computed: {
+    headerClass () {
+      const { type } = this
 
-			return `football-table-header--${type}`
-		},
-	},
+      return `football-table-header--${type}`
+    },
+  },
 }
 </script>
 
 <style lang="scss" scoped>
 .football-table-header {
-	display: block;
-	border-bottom: 3px solid #2c3e50;
+  display: block;
+  border-bottom: 3px solid #2c3e50;
 
-	$this: &;
+  $this: &;
 
-	&__row {
-		display: flex;
-	}
+  &__row {
+    display: flex;
+  }
 
-	&__item {
-		display: inline;
-		padding: 5px 5px 5px 0;
-		font-weight: normal;
-		text-align: left;
+  &__item {
+    display: inline;
+    padding: 10px;
+    font-weight: normal;
+    text-align: left;
 
-		&:not(:last-child) {
-			margin-right: 5px;
-		}
-	}
+    &:not(:last-child) {
+      margin-right: 5px;
+    }
+  }
 
-	&--leagues {
-		#{$this}__item {
-			width: 350px;
-		}
-	}
+  &--leagues {
+    #{$this}__item {
+      width: 350px;
+    }
+  }
 }
 </style>

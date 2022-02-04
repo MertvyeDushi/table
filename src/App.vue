@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import navigationHeader from '@/components/common/navigationHeader'
+import NavigationHeader from '@/components/common/NavigationHeader'
 /**
  * ТЗ:
  * 
@@ -52,7 +52,7 @@ export default {
   name: 'App',
 
   components: {
-    navigationHeader,
+    NavigationHeader,
   },
 }
 </script>
@@ -66,28 +66,28 @@ export default {
 }
 
 body {
-	box-sizing: border-box;
-	position: relative;
+  box-sizing: border-box;
+  position: relative;
 }
 
 *,
 *::after,
 *::before {
-	margin: 0;
-	padding: 0;
-	box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
 }
 
 *:active, *:hover, *:focus {
-	outline: 0;
-	outline-offset: 0;
+  outline: 0;
+  outline-offset: 0;
 }
 
 button {
-	border: none;
+  border: none;
 
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 </style>
