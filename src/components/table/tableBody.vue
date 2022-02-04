@@ -2,11 +2,14 @@
 	<table class="football-table">
 		<table-header :items="headerItems" />
 
-		<table-row
-			v-for="item in items"
-			:key="item.id"
-			:item="item"
-		/>
+		<tbody class="football-table__wrapper">
+			<table-row
+				v-for="item in items"
+				:key="item.id"
+				:item="item"
+				:type="type"
+			/>
+		</tbody>
 	</table>
 </template>
 
@@ -29,7 +32,7 @@ export default {
 		},
 		items: {
 			type: Array,
-			required: true,
+			default: () => [],
 		},
 	},
 
@@ -42,7 +45,7 @@ export default {
 					return [
 						'Название',
 						'Страна',
-						'Дата',
+						'Даты',
 						'День соревнования',
 						'Победитель'
 					]
@@ -63,5 +66,9 @@ export default {
 .football-table {
 	display: block;
 	border: 3px solid #2c3e50;
+
+	&__wrapper {
+		display: block;
+	}
 }
 </style>
