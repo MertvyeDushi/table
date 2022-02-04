@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import { getLeagues, getTeams, getMatches } from 'services'
 
 /**
  * TODO: Добавить axios
@@ -52,7 +53,7 @@ export default new Vuex.Store({
      * @param {String} query
      */
     loadTeamsByQuery: async ({ commit }, query) => {
-      const teams = await getLeagues(query)
+      const teams = await getTeams(query)
 
       commit('setTeams', teams)
     },
