@@ -1,5 +1,9 @@
 <template>
-  <router-link class="football-table-row-link" :to="{ name: routeName, params: { id: item.id } }">
+  <component
+    :is="component"
+    class="football-table-row-link"
+    :to="{ name: 'MatchesView', params: routeParams }"
+  >
     <tr class="football-table-row" :class="rowClass">
       <td
         v-for="(rowDataItem, index) in rowData"
@@ -15,7 +19,7 @@
         </template>
       </td>
     </tr>
-  </router-link>
+  </component>
 </template>
 
 <script>
@@ -34,6 +38,12 @@ export default {
   },
 
   computed: {
+    component () {
+      const { name } = this.$route
+
+      return name === 'MatchesView' ? 'div' : 'router-link'
+    },
+
     rowData () {
       const { item, type } = this
 
@@ -45,14 +55,22 @@ export default {
           item.currentSeason?.currentMatchday ?? '',
           item.currentSeason?.winner?.name ?? '',
         ]
+      } else if (type === 'teams') {
+        return [
+          { url: item.crestUrl ?? null },
+          item.name ?? '',
+          item.area?.name ?? '',
+          item.venue ?? '',
+        ]
+      } else {
+        return [
+          `${item.awayTeam?.name ?? ''} - ${item.homeTeam?.name ?? ''}`,
+          item.season?.startDate ? new Date(item.season.startDate).toISOString().slice(0, 10) : '',
+          item.season?.endDate ? new Date(item.season.endDate).toISOString().slice(0, 10) : '',
+          item.status ?? '',
+          item.winner ?? '',
+        ]
       }
-
-      return [
-        { url: item.crestUrl ?? null },
-        item.name ?? '',
-        item.area?.name ?? '',
-        item.venue ?? '',
-      ]
     },
 
     rowClass () {
@@ -61,10 +79,13 @@ export default {
       return `football-table-row--${type}`
     },
 
-    routeName () {
-      const { type } = this
+    routeParams () {
+      const { type, item } = this
 
-      return type === 'leagues' ? 'LeagueView' : 'TeamView'
+      return {
+        type: type === 'leagues' ? 'league' : 'team',
+        id: item.id,
+      }
     },
   },
 }
@@ -101,6 +122,12 @@ export default {
   &--teams {
     #{$this}__item {
       width: 450px;
+    }
+  }
+
+  &--matches {
+    #{$this}__item {
+      width: 500px;
     }
   }
 

@@ -70,5 +70,11 @@ export default {
       width: 450px;
     }
   }
+
+  &--matches {
+    #{$this}__item {
+      width: 500px;
+    }
+  }
 }
 </style>

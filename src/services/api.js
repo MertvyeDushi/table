@@ -13,5 +13,19 @@ export async function getTeams (params) {
 }
 
 export async function getMatches (params) {
-  return await instance.get('/', params)
+  const { type, id, dates } = params
+
+  const time = dates ?? {
+    dateFrom: '2020-03-01',
+    dateTo: '2021-01-01',
+  }
+
+  const url = {
+    league: `/competitions/${id}/matches`,
+    team: `/teams/${id}/matches`,
+  }
+
+  const { data } = await instance.get(url[type] ?? '/', time)
+
+  return data
 }

@@ -9,6 +9,7 @@ export default new Vuex.Store({
     leagues: [],
     teams: [],
     matches: [],
+    error: null,
   },
   getters: {
     getFilteredLeagues: (state) => (query) => {
@@ -32,15 +33,22 @@ export default new Vuex.Store({
     setMatches: (state, payload) => {
       state.matches = payload
     },
+    setError: (state, payload) => {
+      state.error = payload
+    }
   },
   actions: {
     /**
      * Leagues 
      */
     loadLeagues: async ({ commit }) => {
-      const { competitions } = await getLeagues()
-
-      commit('setLeagues', [...competitions])
+      try {
+        const { competitions } = await getLeagues()
+  
+        commit('setLeagues', [...competitions])
+      } catch {
+        commit('setError', 'Список лиг не получен! Проверьте токен и подписку!')
+      }
     },
     /**
      * Leagues
@@ -55,9 +63,13 @@ export default new Vuex.Store({
      * Teams
      */
     loadTeams: async ({ commit }) => {
-      const { teams } = await getTeams()
-
-      commit('setTeams', [...teams])
+      try {
+        const { teams } = await getTeams()
+  
+        commit('setTeams', [...teams])
+      } catch {
+        commit('setError', 'Список команд не получен! Проверьте токен и подписку!')
+      }
     },
     /**
      * Teams
@@ -72,10 +84,14 @@ export default new Vuex.Store({
      * Matches
      * @param {String} type
      */
-    loadMatches: async ({ commit }, type) => {
-      const matches = await getMatches(type)
-
-      commit('setMatches', matches)
+    loadMatches: async ({ commit }, params) => {
+      try {
+        const { matches } = await getMatches(params)
+  
+        commit('setMatches', [...matches])
+      } catch {
+        commit('setError', 'Список матчей не получен! Проверьте токен и подписку!')
+      }
     },
     /**
      * Matches
