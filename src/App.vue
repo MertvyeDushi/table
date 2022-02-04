@@ -11,7 +11,7 @@
 import { mapActions } from 'vuex'
 
 /**
- * TODO:
+ * ТЗ:
  * 
  * 0. API: https://www.football-data.org/
  * 
@@ -22,13 +22,40 @@ import { mapActions } from 'vuex'
  * 
  * 5. При выполнении поиска сохранять query в роуте;
  * 6. Ключи в .env;
+ * 
+ * TODO:
+ * 
+ * СТОР (Лиги)
+ * 1. Экшны:
+ * - loadLeagues - загрузка всех лиг;
+ * - loadLeaguesByQuery - загрузка лиг по названию (если API нет, то использовать геттер с фильтром через .filter());
+ * 
+ * 2. Мутации:
+ * - setLeagues - установка лиг;
+ * 
+ * 3. Стейт:
+ * - items - лиги;
+ * 
+ * СТОР (Команды): аналогично.
+ * 
+ * СТОР (Календарь лиги):
+ * 
+ * 1. loadMatches - загрузка матчей лиги;
+ * 2. loadMatchesByDate - загрузка матчей лиги по дате;
+ * 
+ * СТОР (Календарь команды): аналогично.
+ * 
+ * Структура:
+ * 
+ * common: навигация, поиск (поле ввода + кнопка, разделять не надо, в одном компоненте), календарь;
+ * views: LeagueView, TeamsView, LeagueCalendarView, TeamCalendarView.
  */
 
 export default {
-  name: 'RootPage',
+  name: 'App',
 
   methods: {
-    ...mapActions(['loadPage']),
+    ...mapActions(['loadPage']), // Перенести в LeagueView
   },
 }
 </script>
