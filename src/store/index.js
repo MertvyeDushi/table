@@ -35,13 +35,7 @@ export default new Vuex.Store({
     loadLeagues: async ({ commit }) => {
       const { competitions } = await getLeagues()
 
-      if (Array.isArray(competitions)) {
-        commit('setLeagues', [...competitions])
-        
-        return
-      }
-
-      commit('setLeagues', competitions)
+      commit('setLeagues', [...competitions])
     },
     /**
      * Leagues

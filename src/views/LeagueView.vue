@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <main>
     <template v-if="hasLeagues">
       <league-table :items="leagues" />
     </template>
@@ -7,7 +7,7 @@
     <template v-else>
       <empty-data />
     </template>
-  </div>
+  </main>
 </template>
 
 <script>

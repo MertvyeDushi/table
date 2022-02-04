@@ -1,13 +1,12 @@
 <template>
   <div id="app">
-    <!-- Навигация -->
-
-    <!-- Отображение страниц -->
+    <navigation-header />
     <router-view/>
   </div>
 </template>
 
 <script>
+import navigationHeader from '@/components/common/navigationHeader'
 /**
  * ТЗ:
  * 
@@ -51,6 +50,10 @@
 
 export default {
   name: 'App',
+
+  components: {
+    navigationHeader,
+  },
 }
 </script>
 
@@ -60,5 +63,31 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+}
+
+body {
+	box-sizing: border-box;
+	position: relative;
+}
+
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
+}
+
+*:active, *:hover, *:focus {
+	outline: 0;
+	outline-offset: 0;
+}
+
+button {
+	border: none;
+
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
 }
 </style>
