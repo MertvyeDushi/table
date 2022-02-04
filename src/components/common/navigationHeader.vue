@@ -2,7 +2,7 @@
 	<header class="football-header">
 		<nav class="football-header__navigation">
 			<ul class="football-header__navigation-inner">
-				<li class="football-header__navigation-item">
+				<li class="football-header__navigation-item" :class="isActive('LeagueView')">
 					<router-link class="football-header__navigation-link" to="/">
 						Лиги и соревнования
 					</router-link>
@@ -33,6 +33,12 @@
 <script>
 export default {
 	name: 'navigationHeader',
+
+	methods: {
+		isActive (name) {
+			return this.$route.name === name ? 'football-header__navigation-item--active' : ''
+		},
+	},
 }
 </script>
 
@@ -63,6 +69,10 @@ export default {
 
 	&__navigation-item {
 		display: inline-block;
+
+		&--active {
+			text-decoration: underline;
+		}
 
 		&:not(:last-child) {
 			margin-right: 30px;

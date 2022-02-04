@@ -1,7 +1,7 @@
 <template>
-  <main>
+  <main class="football-leagues">
     <template v-if="hasLeagues">
-      <league-table :items="leagues" />
+      <table-body :items="leagues" type="leagues" />
     </template>
 
     <template v-else>
@@ -13,14 +13,14 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 import emptyData from '@/components/common/emptyData'
-import leagueTable from '@/components/league/leagueTable'
+import tableBody from '@/components/table/tableBody'
 
 export default {
   name: 'LeaguesView',
 
   components: {
     emptyData,
-    leagueTable,
+    tableBody,
   },
 
   created () {
@@ -53,3 +53,10 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" scoped>
+.football-leagues {
+	padding: 5px 10px;
+	border: 3px solid #2c3e50;
+}
+</style>

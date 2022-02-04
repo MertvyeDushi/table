@@ -6,7 +6,7 @@
 
 <script>
 export default {
-	name: 'leagueRow',
+	name: 'tableRow',
 
 	props: {
 		item: {
