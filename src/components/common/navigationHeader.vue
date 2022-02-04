@@ -37,10 +37,16 @@ export default {
 
 <style lang="scss" scoped>
 .football-header {
+  position: fixed;
+  top: 0%;
+  left: 0%;
   width: 100%;
-  height: 50px;
-  padding: 5px 10px;
-  border: 3px solid #2c3e50;
+  height: 75px;
+  padding: 5px 20px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  background: #e0e0e0;
+  box-shadow: 31px 31px 63px #bebebe, -31px -31px 63px #ffffff;
 
   @media screen and (max-width: 768px) {
     height: auto;
@@ -64,7 +70,7 @@ export default {
     display: inline-block;
 
     &--active {
-      text-decoration: underline;
+      font-weight: bolder;
     }
 
     &:not(:last-child) {
@@ -82,7 +88,7 @@ export default {
   }
 
   &__navigation-link {
-    color: #2c3e50;
+    color: #1d1d1d;
     text-decoration: none;
   }
 }

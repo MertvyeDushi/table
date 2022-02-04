@@ -101,7 +101,7 @@ export default {
   transition: background 0.1s ease-in;
 
   &:hover {
-    background: #eaf0f55e;
+    background: #aeafb15e;
   }
 
 
@@ -139,7 +139,7 @@ export default {
 }
 
 .football-table-row-link {
-  color: #2c3e50;
+  color: #1d1d1d;
   text-decoration: none;
 }
 </style>

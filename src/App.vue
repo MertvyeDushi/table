@@ -59,10 +59,12 @@ export default {
 
 <style lang="scss">
 #app {
+  padding-top: 92px;
+  background: #e0e0e0;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+  color: #1d1d1d;
 }
 
 body {

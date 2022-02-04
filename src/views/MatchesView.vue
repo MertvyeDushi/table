@@ -63,6 +63,6 @@ export default {
 
 <style lang="scss" scoped>
 .football-mathes {
-  border: 3px solid #2c3e50;
+  background: #e0e0e0;
 }
 </style>

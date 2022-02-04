@@ -75,7 +75,6 @@ export default {
 <style lang="scss" scoped>
 .football-table {
   display: block;
-  border: 3px solid #2c3e50;
 
   &__wrapper {
     display: block;

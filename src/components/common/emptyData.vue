@@ -49,7 +49,7 @@ export default {
 
   &__error {
     padding: 10px;
-    color: rgb(238, 76, 76);
+    color: rgb(26, 14, 14);
   }
 }
 </style>

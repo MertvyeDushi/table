@@ -40,7 +40,6 @@ export default {
 <style lang="scss" scoped>
 .football-table-header {
   display: block;
-  border-bottom: 3px solid #2c3e50;
 
   $this: &;
 

@@ -33,13 +33,16 @@ export default {
 
 <style lang="scss" scoped>
 .football-search-form {
-  height: 40px;
-  border: 3px solid #2c3e50;
+  height: 60px;
+  padding: 10px;
+  background: #e0e0e0;
 
   &__input {
     width: 100%;
     height: 100%;
-    padding: 5px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 12px;
   }
 }
 </style>
