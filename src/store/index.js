@@ -1,10 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { getLeagues, getTeams, getMatches } from 'services'
-
-/**
- * TODO: Добавить axios
- */
+import { getLeagues, getTeams, getMatches } from '../services/api'
 
 Vue.use(Vuex)
 
@@ -14,6 +10,13 @@ export default new Vuex.Store({
     teams: [],
     matches: [],
   },
+  getters: {
+    getFilteredLeagues: (state) => (query) => {
+      const { leagues } = state
+
+      return query ? leagues.filter(item => item.name.toLowerCase().includes(query.toLowerCase())) : leagues
+    },
+  },
   mutations: {
     setLeagues: (state, payload) => {
       state.leagues = payload
@@ -21,15 +24,24 @@ export default new Vuex.Store({
     setTeams: (state, payload) => {
       state.teams = payload
     },
+    setMatches: (state, payload) => {
+      state.matches = payload
+    },
   },
   actions: {
     /**
      * Leagues 
      */
     loadLeagues: async ({ commit }) => {
-      const leagues = await getLeagues()
+      const { competitions } = await getLeagues()
 
-      commit('setLeagues', leagues)
+      if (Array.isArray(competitions)) {
+        commit('setLeagues', [...competitions])
+        
+        return
+      }
+
+      commit('setLeagues', competitions)
     },
     /**
      * Leagues

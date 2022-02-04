@@ -8,8 +8,6 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
-
 /**
  * ТЗ:
  * 
@@ -48,15 +46,11 @@ import { mapActions } from 'vuex'
  * Структура:
  * 
  * common: навигация, поиск (поле ввода + кнопка, разделять не надо, в одном компоненте), календарь;
- * views: LeagueView, TeamsView, LeagueCalendarView, TeamCalendarView.
+ * views: LeaguesView, TeamsView, LeagueCalendarView, TeamCalendarView.
  */
 
 export default {
   name: 'App',
-
-  methods: {
-    ...mapActions(['loadPage']), // Перенести в LeagueView
-  },
 }
 </script>
 

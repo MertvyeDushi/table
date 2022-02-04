@@ -1,13 +1,15 @@
 import { instance } from './instance'
 
-export async function getLeagues (data) {
-	return await instance.get('/', data)
+export async function getLeagues (params) {
+	const { data } = await instance.get('/competitions', params)
+
+	return data
 }
 
-export async function getTeams (data) {
-	return await instance.get('/', data)
+export async function getTeams (params) {
+	return await instance.get('/', params)
 }
 
-export async function getMatches (data) {
-	return await instance.get('/', data)
+export async function getMatches (params) {
+	return await instance.get('/', params)
 }
