@@ -1,10 +1,10 @@
 <template>
-	<div>LeagueView</div>
+  <div>TeamView</div>
 </template>
 
 <script>
 export default {
-	name: 'LeagueView',
+  name: 'TeamView',
 }
 </script>
 

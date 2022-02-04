@@ -45,7 +45,7 @@ import NavigationHeader from '@/components/common/NavigationHeader'
  * Структура:
  * 
  * common: навигация, поиск (поле ввода + кнопка, разделять не надо, в одном компоненте), календарь;
- * views: LeaguesView, TeamsView, LeagueCalendarView, TeamCalendarView.
+ * views: LeaguesView, TeamsView, LeagueCalendarView, TeamCalendarView. (Страницы держим раздельными!)
  */
 
 export default {

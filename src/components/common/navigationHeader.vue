@@ -2,25 +2,25 @@
   <header class="football-header">
     <nav class="football-header__navigation">
       <ul class="football-header__navigation-inner">
-        <li class="football-header__navigation-item" :class="isActive('LeagueView')">
+        <li class="football-header__navigation-item" :class="isActive('LeaguesView')">
           <router-link class="football-header__navigation-link" to="/">
             Лиги и соревнования
           </router-link>
         </li>
 
-        <li class="football-header__navigation-item">
-          <router-link class="football-header__navigation-link" to="/">						
+        <li class="football-header__navigation-item" :class="isActive('TeamsView')">
+          <router-link class="football-header__navigation-link" to="/teams">						
             Команды
           </router-link>
         </li>
 
-        <li class="football-header__navigation-item">
+        <li class="football-header__navigation-item" :class="isActive('LeagueView')">
           <router-link class="football-header__navigation-link" to="/">
             Календарь лиги
           </router-link>
         </li>
 
-        <li class="football-header__navigation-item">
+        <li class="football-header__navigation-item" :class="isActive('TeamView')">
           <router-link class="football-header__navigation-link" to="/">
             Календарь команды
           </router-link>

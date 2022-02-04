@@ -7,7 +7,9 @@ export async function getLeagues (params) {
 }
 
 export async function getTeams (params) {
-  return await instance.get('/', params)
+  const { data } = await instance.get('/teams', params)
+
+  return data
 }
 
 export async function getMatches (params) {

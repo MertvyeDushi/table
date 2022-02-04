@@ -1,14 +1,36 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import LeagueView from '@/views/LeagueView.vue'
+import LeaguesView from '@/views/LeaguesView'
+import TeamsView from '@/views/TeamsView'
+import LeagueView from '@/views/LeagueView'
+import TeamView from '@/views/TeamView'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/:search?',
+    path: '/',
+    redirect: { name: 'LeaguesView' },
+  },
+  {
+    path: '/league/:search?',
+    name: 'LeaguesView',
+    component: LeaguesView,
+  },
+  {
+    path: '/teams/:search?',
+    name: 'TeamsView',
+    component: TeamsView,
+  },
+  {
+    path: '/league/:id',
     name: 'LeagueView',
-    component: LeagueView
+    component: LeagueView,
+  },
+  {
+    path: '/team/:id',
+    name: 'TeamView',
+    component: TeamView,
   },
 ]
 

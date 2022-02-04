@@ -16,6 +16,11 @@ export default new Vuex.Store({
 
       return query ? leagues.filter(item => item.name.toLowerCase().includes(query.toLowerCase())) : leagues
     },
+    getFilteredTeams: (state) => (query) => {
+      const { teams } = state
+
+      return query ? teams.filter(item => item.name.toLowerCase().includes(query.toLowerCase())) : teams
+    },
   },
   mutations: {
     setLeagues: (state, payload) => {
@@ -50,9 +55,9 @@ export default new Vuex.Store({
      * Teams
      */
     loadTeams: async ({ commit }) => {
-      const teams = await getTeams()
+      const { teams } = await getTeams()
 
-      commit('setTeams', teams)
+      commit('setTeams', [...teams])
     },
     /**
      * Teams

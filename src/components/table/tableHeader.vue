@@ -64,5 +64,11 @@ export default {
       width: 350px;
     }
   }
+
+  &--teams {
+    #{$this}__item {
+      width: 450px;
+    }
+  }
 }
 </style>

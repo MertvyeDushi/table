@@ -1,13 +1,21 @@
 <template>
-  <tr class="football-table-row" :class="rowClass">
-    <td
-      v-for="(rowDataItem, index) in rowData"
-      :key="index"
-      class="football-table-row__item"
-    >
-      {{ rowDataItem }}
-    </td>
-  </tr>
+  <router-link class="football-table-row-link" :to="{ name: routeName, params: { id: item.id } }">
+    <tr class="football-table-row" :class="rowClass">
+      <td
+        v-for="(rowDataItem, index) in rowData"
+        :key="index"
+        class="football-table-row__item"
+      >
+        <template v-if="rowDataItem.url">
+          <img class="football-table-row__image" :src="rowDataItem.url" alt="Logo">
+        </template>
+
+        <template v-else>
+          {{ rowDataItem }}
+        </template>
+      </td>
+    </tr>
+  </router-link>
 </template>
 
 <script>
@@ -27,14 +35,23 @@ export default {
 
   computed: {
     rowData () {
-      const { item } = this
+      const { item, type } = this
+
+      if (type === 'leagues') {
+        return [
+          item.name ?? '',
+          item.area?.name ?? '',
+          item.currentSeason?.startDate ?? '',
+          item.currentSeason?.currentMatchday ?? '',
+          item.currentSeason?.winner?.name ?? '',
+        ]
+      }
 
       return [
+        { url: item.crestUrl ?? null },
         item.name ?? '',
         item.area?.name ?? '',
-        item.currentSeason?.startDate ?? '',
-        item.currentSeason?.currentMatchday ?? '',
-        item.currentSeason?.winner?.name ?? '',
+        item.venue ?? '',
       ]
     },
 
@@ -43,17 +60,29 @@ export default {
 
       return `football-table-row--${type}`
     },
+
+    routeName () {
+      const { type } = this
+
+      return type === 'leagues' ? 'LeagueView' : 'TeamView'
+    },
   },
 }
 </script>
 
 <style lang="scss" scoped>
 .football-table-row {
-  display: block;
-  padding: 10px;
-  border-bottom: 1px solid #2c3e50;
-
   $this: &;
+
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  transition: background 0.1s ease-in;
+
+  &:hover {
+    background: #eaf0f55e;
+  }
+
 
   &__item {
     display: inline-block;
@@ -68,5 +97,22 @@ export default {
       width: 350px;
     }
   }
+
+  &--teams {
+    #{$this}__item {
+      width: 450px;
+    }
+  }
+
+  &__image {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+  }
+}
+
+.football-table-row-link {
+  color: #2c3e50;
+  text-decoration: none;
 }
 </style>

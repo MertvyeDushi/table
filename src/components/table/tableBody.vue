@@ -1,6 +1,6 @@
 <template>
   <table class="football-table">
-    <table-header :items="headerItems" />
+    <table-header :items="headerItems" :type="type" />
 
     <tbody class="football-table__wrapper">
       <table-row
