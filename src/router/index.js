@@ -1,9 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import LeaguesView from '@/views/LeaguesView'
+import MatchesView from '@/views/MatchesView'
 import TeamsView from '@/views/TeamsView'
-import LeagueView from '@/views/LeagueView'
-import TeamView from '@/views/TeamView'
 
 Vue.use(VueRouter)
 
@@ -23,14 +22,9 @@ const routes = [
     component: TeamsView,
   },
   {
-    path: '/league/:id',
-    name: 'LeagueView',
-    component: LeagueView,
-  },
-  {
-    path: '/team/:id',
-    name: 'TeamView',
-    component: TeamView,
+    path: '/matches/:type/:id',
+    name: 'MatchesView',
+    component: MatchesView,
   },
 ]
 

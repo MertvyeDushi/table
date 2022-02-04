@@ -13,18 +13,6 @@
             Команды
           </router-link>
         </li>
-
-        <li class="football-header__navigation-item" :class="isActive('LeagueView')">
-          <router-link class="football-header__navigation-link" to="/">
-            Календарь лиги
-          </router-link>
-        </li>
-
-        <li class="football-header__navigation-item" :class="isActive('TeamView')">
-          <router-link class="football-header__navigation-link" to="/">
-            Календарь команды
-          </router-link>
-        </li>
       </ul>
     </nav>
   </header>
@@ -36,7 +24,12 @@ export default {
 
   methods: {
     isActive (name) {
-      return this.$route.name === name ? 'football-header__navigation-item--active' : ''
+      const { name: routeName } = this.$route
+
+      const activeClassName = 'football-header__navigation-item--active'
+      const namesTheSame = routeName === name
+
+      return namesTheSame ? activeClassName : ''
     },
   },
 }
