@@ -60,19 +60,34 @@ export default {
 
   &--leagues {
     #{$this}__item {
+      flex-shrink: 0;
       width: 350px;
+
+      @media screen and (max-width: 768px) {
+        width: 250px;
+      }
     }
   }
 
   &--teams {
     #{$this}__item {
+      flex-shrink: 0;
       width: 450px;
+
+      @media screen and (max-width: 768px) {
+        width: 150px;
+      }
     }
   }
 
   &--matches {
     #{$this}__item {
+      flex-shrink: 0;
       width: 500px;
+
+      @media screen and (max-width: 768px) {
+        width: 300px;
+      }
     }
   }
 }

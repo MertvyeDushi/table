@@ -76,6 +76,10 @@ export default {
 .football-table {
   display: block;
 
+  @media screen and (max-width: 768px) {
+    overflow: auto;
+  }
+
   &__wrapper {
     display: block;
   }
