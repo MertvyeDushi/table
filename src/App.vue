@@ -2,11 +2,15 @@
   <div id="app">
     <navigation-header />
     <router-view/>
+    <div class="football-copyright">
+      <mark-tooltip />
+    </div>
   </div>
 </template>
 
 <script>
 import NavigationHeader from '@/components/common/NavigationHeader'
+import MarkTooltip from '@/components/common/MarkTooltip'
 /**
  * ТЗ:
  * 
@@ -53,12 +57,14 @@ export default {
 
   components: {
     NavigationHeader,
+    MarkTooltip,
   },
 }
 </script>
 
 <style lang="scss">
 #app {
+  min-height: 100vh;
   padding-top: 92px;
   background: #e0e0e0;
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -91,5 +97,11 @@ button {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+}
+
+.football-copyright {
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
 }
 </style>
